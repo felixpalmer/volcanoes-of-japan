@@ -1,0 +1,136 @@
+html, body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+}
+
+h1, h2 {
+  position: absolute;
+  z-index: 100;
+  color: white;
+  text-shadow: 1px 2px 4px rgba(2, 3, 11, 0.5);
+  font-weight: 100;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 12px;
+}
+
+#paper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url(paper.jpg);
+}
+
+#stencil {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-color: rgba(20, 23, 25, 0);
+  /*background-image: url(stencil3.png);*/
+  background-image: url(mountain-calig.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 2s 1s ease-in-out, background-color 0.5s 1s ease-out;
+  transform: scale(80);
+}
+
+#stencil.hidden {
+  transform: scale(1);
+  background-color: rgba(20, 23, 25, 1);
+  transition: all 2s 0s ease-in, background-color 2s 0s ease-in;
+}
+
+#title {
+  background: #232e32;
+  padding: 6px 12px 18px 12px;
+  top: 25px;
+  cursor: pointer;
+  transition: opacity 1s 3s;
+}
+
+#title.hidden {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#subtitle {
+  font-size: 12px;
+  top: 72px;
+  left: 12px;
+  color: #ccc;
+}
+
+#peak-list-overlay {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  z-index: 1000;
+  transition: transform 0.5s 2s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+#peak-list-overlay.hidden {
+  transform: translateY(-100%);
+  transition: transform 0.5s 0s ease-in-out;
+}
+
+#peak-list-overlay h1 {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  top: 30px;
+  right: 10px;
+  font-size: 28px;
+}
+
+#peak-list-overlay h2 {
+  position: absolute;
+  font-size: 12px;
+  top: 28px;
+  right: 10px;
+}
+
+#peak-list {
+  padding: 0;
+  margin: 0;
+}
+
+#peak-list li {
+  position: relative;
+  color: white;
+  cursor: pointer;
+  list-style: none;
+  background-size: contain;
+}
+
+#peak-list p {
+  display: inline;
+  line-height: 32px;
+  font-size: 20px;
+  font-weight: 100;
+  color: #f1f3e9;
+  padding: 10px;
+}
+
+#peak-list p:last-child {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 8px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 12px;
+  margin: 0;
+  line-height: normal;
+}
