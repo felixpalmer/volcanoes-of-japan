@@ -106,12 +106,20 @@ fetch( 'volcanoes.geojson' )
       p.innerHTML = peak.properties.name;
       li.appendChild( p );
       p = document.createElement( 'p' );
-      p.innerHTML = '';
-      li.appendChild( p );
       peakList.appendChild( li );
       li.addEventListener( 'click', () => loadPeak( peak ) );
     } );
     peakListOverlay.classList.remove( 'hidden' );
+
+    // Add GH link
+    const li = document.createElement( 'li' );
+    let p = document.createElement( 'p' );
+    p.innerHTML = '[[ - Fork me on GitHub - ]]';
+    li.appendChild( p );
+    peakList.appendChild( li );
+    li.addEventListener( 'click', () => {
+      window.location = 'https://github.com/felixpalmer/volcanoes-of-japan/';
+    } );
 
     // Add overlay showing all volcanoes
     const overlay = {
