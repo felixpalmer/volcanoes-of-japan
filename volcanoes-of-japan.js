@@ -24,6 +24,17 @@ const datasource = {
   }
 }
 Procedural.init( { container, datasource } );
+const env = {
+  title: 'monochrome',
+  parameters: {
+    turbidity: 7.6,
+    reileigh: 0,
+    mieCoefficient: 0.039,
+    mieDirectionalG: 0.47,
+    inclination: 0.53,
+    azimuth: 0.375
+  }
+}
 
 // Configure buttons for UI
 Procedural.setCompassVisible( false );
@@ -33,6 +44,7 @@ function loadPeak( feature ) {
   const { name } = feature.properties;
   const [longitude, latitude] = feature.geometry.coordinates;
   Procedural.displayLocation( { latitude, longitude } );
+  Procedural.setEnvironment( env );
   title.innerHTML = '<';
   title.classList.remove( 'hidden' );
   peakListOverlay.classList.add( 'hidden' );
